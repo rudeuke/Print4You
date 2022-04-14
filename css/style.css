@@ -1,0 +1,24 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  font-family: 'Ubuntu',sans-serif;
+  overflow: hidden;
+  color: black;
+  background-color: #fff;
+}
+
+.navbar {
+  background-color: grey;
+}
+
+.navbar a {
+  color: white;
+  text-transform: uppercase;
+}
+/*# sourceMappingURL=style.css.map */
