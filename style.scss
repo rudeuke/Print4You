@@ -10,17 +10,54 @@ body
     font-family: 'Ubuntu',sans-serif;
     overflow: hidden;
     color: black;
-    background-color: #fff;
+    background-color: #444;
 }
 .navbar
 {
-   
     background-color:grey;
-    a
+    text-transform: uppercase;
+    font-weight: bold;
+   .nav-link,.navbar-brand
+   {
+       color:white;
+   }
+   .blue-text
+   {
+       color:royalblue;
+   }
+   .nav-link:hover,.navbar-brand:hover
+   {
+       color:royalblue;
+
+   }
+}
+.login-btn
+{
+    margin-right: 15px;
+}
+.header-cards
+{
+    height: 50vh;
+}
+.card
+{
+   
+    text-align: center;
+    margin:30px;
+    
+    text-transform: uppercase;
+    font-weight: bold;
+    .card-title
     {
-        color:white;
-        text-transform: uppercase;
+        font-size: 30px;
     }
-    
-    
+    .card-text
+    {
+        font-size: 24px;
+        
+    }
+    .card-img-top
+    {
+        height: 300px;
+    }
 }
