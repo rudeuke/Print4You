@@ -21,4 +21,5 @@ urlpatterns = [
     path('app/', include('print4you.urls')),
     path("register/", v.register, name="register"),
     path('admin/', admin.site.urls),
+    path('', include("django.contrib.auth.urls")),
 ]
