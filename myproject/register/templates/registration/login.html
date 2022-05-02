@@ -9,6 +9,7 @@ Login Here
 	{% csrf_token %}
 	{{form|crispy}}
 	<p>Don't have an accoount? Create one <a href="/register">here</a></p>
+	<p></p><a href="/password_reset">Forgot password?</a></p>
 	<button type="submit" class="btn btn-success">Login</button>	
     </form>
 {% endblock %}

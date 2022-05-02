@@ -22,4 +22,5 @@ urlpatterns = [
     path("register/", v.register, name="register"),
     path('admin/', admin.site.urls),
     path('', include("django.contrib.auth.urls")),
+    path("password_reset", v.password_reset_request, name="password_reset")
 ]
