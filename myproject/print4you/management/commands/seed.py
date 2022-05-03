@@ -1,5 +1,3 @@
-from asyncio.windows_events import NULL
-from venv import create
 from django.core.management.base import BaseCommand
 from print4you.models import *
 from django.contrib.auth.models import User
@@ -27,39 +25,39 @@ class Command(BaseCommand):
 
 def clearDatabase():
     """Deletes all the table data"""
+    Order.objects.all().delete()
     Printout.objects.all().delete()
     Address.objects.all().delete()
-    Order.objects.all().delete()
     User.objects.all().delete()
 
 
 def addUsers():
-    superadmin = User.objects.create_user(
-        username='super.admin@przykladowyemail.com',
-        email='super.admin@przykladowyemail.com',
+    User.objects.create_user(
+        username='admin',
+        email='superuser.admin@przykladowyemail.com',
         password='adminpassword',
         is_staff=True,
         is_superuser=True)
 
-    user1 = User.objects.create_user(
-        username='jan.kowalski@przykladowyemail.com',
+    User.objects.create_user(
+        username='jan.kowalski',
         email='jan.kowalski@przykladowyemail.com',
         password='userpassword')
 
-    user2 = User.objects.create_user(
-        username='adam.nowak@przykladowyemail.com',
+    User.objects.create_user(
+        username='adam.nowak',
         email='adam.nowak@przykladowyemail.com',
         password='userpassword')
 
 
 def addAddresses():
-    user1 = User.objects.get(email='jan.kowalski@przykladowyemail.com')
-    user2 = User.objects.get(email='adam.nowak@przykladowyemail.com')
+    user1 = User.objects.get(username='jan.kowalski')
+    user2 = User.objects.get(username='adam.nowak')
 
     user1address = Address(
         first_name='Jan',
         last_name='Kowalski',
-        email='jan.kowalski@przykladowyemail.com',
+        email=user1.email,
         city='Warszawa',
         street='kolorowa',
         home_number='12/3',
@@ -71,7 +69,7 @@ def addAddresses():
     user2address = Address(
         first_name='Adam',
         last_name='Nowak',
-        email='adam.nowak@przykladowyemail.com',
+        email=user2.email,
         city='Opole',
         street='oleska',
         home_number='50',
@@ -108,8 +106,7 @@ def addPrintouts():
 
 
 def addOrders():
-    printout1 = Printout.objects.get(
-        image_file='user_prints/grapefruit-slice-332-332.jpg')
+    printout1 = Printout.objects.get(image_file='user_prints/grapefruit-slice-332-332.jpg')
     printout2 = Printout.objects.get(image_file='user_prints/img_lights.jpg')
     user1 = User.objects.get(email='jan.kowalski@przykladowyemail.com')
     user2 = User.objects.get(email='adam.nowak@przykladowyemail.com')
