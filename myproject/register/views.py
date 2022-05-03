@@ -1,6 +1,7 @@
 # views.py
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
-from .forms import RegisterForm
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse
 from django.contrib.auth.forms import PasswordResetForm
@@ -10,19 +11,37 @@ from django.db.models.query_utils import Q
 from django.utils.http import urlsafe_base64_encode
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib import messages
 
 
 # Create your views here.
-def register(response):
-    if response.method == "POST":
-        form = RegisterForm(response.POST)
-        if form.is_valid():
-            form.save()
-        
-        return redirect("/register")
-    else:
-        form = RegisterForm()
-    return render(response, "register/register.html", {"form":form})
+def register(request):
+	if request.method == "POST":
+		form = UserCreationForm(request.POST)
+		if form.is_valid():
+			form.save()
+	else:
+		form = UserCreationForm()	
+	return render(request, "register.html", {"form":form})
+
+def login_request(request):
+	if request.method == "POST":
+		form = AuthenticationForm(request, data=request.POST)
+		if form.is_valid():
+			username = form.cleaned_data.get('username')
+			password = form.cleaned_data.get('password')
+			user = authenticate(username=username, password=password)
+			if user is not None:
+				login(request, user)
+				messages.info(request, f"You are now logged in as {username}.")
+				return redirect("main:homepage")
+			else:
+				messages.error(request,"Invalid username or password.")
+		else:
+			messages.error(request,"Invalid username or password.")
+	form = AuthenticationForm()
+	return render(request, "login.html", {"form":form})
 
 def password_reset_request(request):
 	if request.method == "POST":
@@ -50,4 +69,4 @@ def password_reset_request(request):
 						return HttpResponse('Invalid header found.')
 					return redirect ("/password_reset/done/")
 	password_reset_form = PasswordResetForm()
-	return render(request=request, template_name="myproject/register/templates/password/password_reset.html", context={"password_reset_form":password_reset_form})
+	return render(request, "password_reset", {"password_reset_form":password_reset_form})
