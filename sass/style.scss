@@ -1,3 +1,4 @@
+@import "colors";
 *
 {
     box-sizing: border-box;
@@ -14,7 +15,7 @@ body
 }
 .navbar
 {
-    background-color:grey;
+    background-color:$orange-color;
     text-transform: uppercase;
     font-weight: bold;
     z-index: 5;
@@ -25,11 +26,11 @@ body
    }
    .blue-text
    {
-       color:royalblue;
+       color:$mint-color;
    }
    .nav-link:hover,.navbar-brand:hover
    {
-       color:royalblue;
+       color:$mint-color;
 
    }
 }
@@ -41,11 +42,12 @@ body
 {
     height: 50vh;
 }
+
 .card
 {
     text-align: center;
-    margin:30px;
-    
+    padding:100px 15px 15px 15px;
+    border:none;
     text-transform: uppercase;
     font-weight: bold;
     .card-title
@@ -54,7 +56,7 @@ body
     }
     .card-body
     {
-        background-color: #ddd;
+        background-color: $mint-color;
     }
     .card-text
     {
@@ -76,12 +78,57 @@ body
     z-index: 1;
     color:white;
     text-align: center;
-}
-.about-offer-shadow
-{
+    
+    .about-offer-shadow
+    {
     height: 100%;
     width: 100%;
     background-color: rgba(0,0,0,0.8);
     position:absolute;
     z-index:-1;
+    }
+    .fa-star
+    {
+        color:gold;
+    }
+    .fa-message
+    {
+        color:royalblue;
+        
+    }
+    .fa-box-archive
+    {
+        color:$mint-color;
+    }
+    .about-card-title
+    {
+        font-size: 35px;
+    }
+    .about-card-text
+    {
+        font-size: 27px;
+    }
+}
+.footer
+{
+    height: 70px;
+    text-align: center;
+    color:white;
+    a
+    {
+        text-decoration: none;
+        color:white;
+        transition:color 0.3s;
+    }
+    a:hover
+    {
+        color:gold;
+    }
+    .link
+    {
+        font-size: 18px;
+        font-weight: normal;
+        text-transform: uppercase;
+        
+    }
 }
