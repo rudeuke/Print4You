@@ -13,16 +13,17 @@ from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
+from register.forms import RegisterForm
 
 
 # Create your views here.
 def register(request):
 	if request.method == "POST":
-		form = UserCreationForm(request.POST)
+		form = RegisterForm(request.POST)
 		if form.is_valid():
 			form.save()
 	else:
-		form = UserCreationForm()	
+		form = RegisterForm()	
 	return render(request, "register.html", {"form":form})
 
 def login_request(request):
