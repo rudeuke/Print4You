@@ -6,6 +6,7 @@ class Printout(models.Model):
     is_color = models.BooleanField(default=True)
     is_gloss = models.BooleanField(default=True)
     quantity = models.IntegerField(default=1)
+    size = models.CharField(max_length=7)
     image_file = models.ImageField(upload_to='user_prints')
     price = models.DecimalField(max_digits=9, decimal_places=2)
 
