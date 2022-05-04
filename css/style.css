@@ -6,7 +6,6 @@
 }
 
 body {
-  height: 100vh;
   font-family: 'Ubuntu',sans-serif;
   color: black;
   background-color: #444;
@@ -43,8 +42,8 @@ body {
 
 .card {
   text-align: center;
-  padding: 100px 15px 15px 15px;
   border: none;
+  padding: 0px 30px 30px 0px;
   text-transform: uppercase;
   font-weight: bold;
 }
@@ -74,6 +73,10 @@ body {
   z-index: 1;
   color: white;
   text-align: center;
+}
+
+.about-offer .container {
+  padding: 15px;
 }
 
 .about-offer .about-offer-shadow {
