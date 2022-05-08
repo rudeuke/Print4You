@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/f394a4746b.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="css/style-offer.css">
+  <link rel="stylesheet" href="css/style-login.css">
   <title>Print4You</title>
 </head>
 
@@ -28,11 +28,11 @@
           <a class="nav-link" href="index.html">Home</a>
           <a class="nav-link" href="#">kontakt</a>
           <a class="nav-link" href="#">o nas</a>
-          <a class="nav-link" href="#">oferta</a>
+          <a class="nav-link" href="offer.html">oferta</a>
           <a class="nav-link" href="#">zamów</a>
           </div>
           <div class="navbar-nav ms-auto">
-          <a class="nav-link login-btn" href="login.html">zaloguj</a>
+          <a class="nav-link login-btn" href="#">zaloguj</a>
           <a class="nav-link signin-btn" href="#">rejestracja</a>
           </div>
         
@@ -40,54 +40,21 @@
     </div>
   </nav>
 <main>
-<div class="all-offers">
-    <div class="offers">
-        <div class="container">
-            <div class="row">
-            <div class="col-6 offer-text">
-                <h2>zdjęcia</h2>
-                <p>papier: mat / błyszczący</p>
-                <p>druk: kolorowy / czarnobiały</p>
-                <p> format: 9X13 / 10X15 / A4 / A3</p>
-            </div>
-            <div class="col-6 offer-img">
-                <img src="img/photos.jpg" alt="zdjęcia">
-            </div>
-            </div>
-        </div>
-    </div>
-    <div class="offers">
-      <div class="container">
-          <div class="row">
-          <div class="col-6 offer-text">
-              <h2>plakat</h2>
-              <p>papier: mat / błyszczący</p>
-              <p>druk: kolorowy / czarnobiały</p>
-              <p>format: 50x70 / 80x100 / 12x160</p>
-          </div>
-          <div class="col-6 offer-img">
-              <img src="img/poster.jpg" alt="plakaty">
-          </div>
-          </div>
-      </div>
-  </div>
-  <div class="offers">
+<div class="login-panel">
     <div class="container">
-        <div class="row">
-        <div class="col-6 offer-text">
-            <h2>duży format</h2>
-            <p>papier: mat / błyszczący</p>
-            <p>druk: kolorowy / czarnobiały</p>
-            <p>format: 800mm / 1000mm / 1200mm</p>
-        </div>
-        <div class="col-6 offer-img">
-            <img src="img/bigformat.jpg" alt="plakaty">
-        </div>
-        </div>
+        <form class="login-form" action="">
+            <label for="email">Email:</label><br>
+            <input type="text" id="email" name="email"><br>
+            <label for="password">Password:</label><br>
+            <input type="text" id="password" name="password">
+            <p>Zapomniałeś hasła?</p>
+            <button>zaloguj</button>
+        </form>
+       
     </div>
+
+
 </div>
-</div>
-    
 
 </main>
 <footer class="footer">

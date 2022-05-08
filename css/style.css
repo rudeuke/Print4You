@@ -24,7 +24,7 @@ body {
   transition: color 0.3s;
 }
 
-.navbar .blue-text {
+.navbar .mint-text {
   color: #3eb489;
 }
 
@@ -105,6 +105,18 @@ body {
 
 .about-offer .about-card-text {
   font-size: 27px;
+}
+
+.order-now {
+  padding: 5px;
+  border-radius: 30px;
+  background-color: #fabb0c;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.order-now:hover {
+  background-color: #3eb489;
 }
 
 .footer {

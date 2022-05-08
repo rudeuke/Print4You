@@ -15,7 +15,6 @@ body
 }
 .navbar
 {
-    
     background-color:$orange-color;
     text-transform: uppercase;
     font-weight: bold;
@@ -39,6 +38,50 @@ body
 {
     margin-right: 15px;
 }
+.login-panel
+{
+    height: 80vh;
+    background-color: $mint-color;
+    margin-top:30px;
+    position:relavite;
+    
+}
+.login-form
+{
+    
+    position:absolute;
+    top:30%;
+    left:50%;
+    transform:translateX(-50%);
+    text-transform: uppercase;
+    input[type=text]
+    {
+        width:400px;
+    }
+    label
+    {
+        font-size: 25px;
+        font-weight: bold;
+    }
+    p
+    {   
+        position:absolute;
+        margin-top: 30px;
+        cursor: pointer;
+    }
+    
+    button
+    {   
+        margin-top: 60px;
+        position:absolute;
+        right:0px;
+        background-color: $orange-color;
+        border-radius: 10px;
+        text-transform: uppercase;
+        width: 100px;
+    }
+}
+
 .footer
 {
     height: 70px;
@@ -60,37 +103,5 @@ body
         font-weight: normal;
         text-transform: uppercase;
         
-    }
-}
-
-.offers
-{
-    font-size: 1em;
-    height: 24vh;
-    
-    background-color:$mint-color;
-    margin-top:3vh;
-    text-align: center;
-    text-transform: uppercase;
-    h2
-    {
-        font-weight:bold;
-    }
-    .offer-text
-    {
-        height: 24vh; 
-        padding-top: 30px;
-    }
-    
-    .offer-img
-    {
-        height: 24vh;
-        img
-        {
-            width: auto;
-            height: auto;
-            max-width: 100%;
-            max-height: 100%;
-        } 
     }
 }

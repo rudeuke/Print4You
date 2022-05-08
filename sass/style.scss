@@ -24,7 +24,7 @@ body
        color:white;
        transition: color 0.3s;
    }
-   .blue-text
+   .mint-text
    {
        color:$mint-color;
    }
@@ -112,6 +112,18 @@ body
     {
         font-size: 27px;
     }
+}
+.order-now
+{
+    padding:5px;
+    border-radius: 30px;
+    background-color: $orange-color;
+    transition:0.2s
+}
+.order-now:hover
+{
+    background-color:$mint-color;
+    
 }
 .footer
 {
