@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from register import views as v
 from print4you import views
-from django.contrib.auth import views as auth_views  
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('index/', views.index, name='index'),
@@ -26,10 +26,15 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("login", v.login_request, name="login"),
     path("accounts/login/", v.login_request, name='login'),
+    path("calculator/", views.calculator, name='calculator'),
     path('', include("django.contrib.auth.urls")),
 
-    path('password_reset/',auth_views.PasswordResetView.as_view(),name='password_reset'),
-    path('password_reset/done/',auth_views.PasswordResetDoneView.as_view(),name='password_reset_done'),
-    path('reset/<uidb64>/<token>/',auth_views.PasswordResetConfirmView.as_view(),name='password_reset_confirm'),
-    path('reset/done/',auth_views.PasswordResetCompleteView.as_view(),name='password_reset_complete'),
+    path('password_reset/', auth_views.PasswordResetView.as_view(),
+         name='password_reset'),
+    path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(),
+         name='password_reset_done'),
+    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(),
+         name='password_reset_confirm'),
+    path('reset/done/', auth_views.PasswordResetCompleteView.as_view(),
+         name='password_reset_complete'),
 ]

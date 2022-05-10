@@ -1,0 +1,15 @@
+{% block title %}
+Kalkulator
+{% endblock %}
+
+
+{% block content %}
+</br></br>
+<table>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_table }}
+</table>
+<button class="btn btn-primary">Oblicz</button>
+
+{% endblock %}
