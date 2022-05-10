@@ -1,19 +1,12 @@
 # views.py
 from django.contrib.auth import login, authenticate
-from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
-from django.core.mail import send_mail, BadHeaderError
-from django.http import HttpResponse
-from django.contrib.auth.forms import PasswordResetForm
-from django.contrib.auth.models import User
-from django.template.loader import render_to_string
-from django.db.models.query_utils import Q
-from django.utils.http import urlsafe_base64_encode
-from django.contrib.auth.tokens import default_token_generator
-from django.utils.encoding import force_bytes
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
+from register.forms import EditProfileForm
 from register.forms import RegisterForm
+from django.views import generic
+from django.urls import reverse_lazy
 
 
 # Create your views here.
@@ -43,4 +36,12 @@ def login_request(request):
 			messages.error(request,"Invalid username or password.")
 	form = AuthenticationForm()
 	return render(request, "login.html", {"form":form})
+
+class UserEditView(generic.UpdateView):
+	form_class = EditProfileForm
+	template_name = 'registration/edit_profile.html'
+	success_url = reverse_lazy('login')
+
+	def get_object(self):
+		return self.request.user
 
