@@ -6,7 +6,7 @@ from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
-from register.forms import EditAddressForm
+from register.forms import SetAddressForm
 from register.forms import EditProfileForm
 from register.forms import RegisterForm
 from django.views import generic
@@ -56,15 +56,15 @@ def add_address(request):
 	if request.user.is_authenticated:
 		user = User.objects.get(pk=request.user.id)
 
-	form = EditAddressForm(initial={"user":user})
+	form = SetAddressForm(initial={"user":user})
 
 	if request.method == 'POST':
-		form = EditAddressForm(request.POST)
+		form = SetAddressForm(request.POST)
 		if form.is_valid():
 			form.save()
 	
 
 	context = {'form':form}
-	return render(request, 'registration/edit_address.html', context)
+	return render(request, 'registration/set_address.html', context)
 	
 
