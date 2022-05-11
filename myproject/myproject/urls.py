@@ -27,6 +27,7 @@ urlpatterns = [
     path("login", v.login_request, name="login"),
     path("accounts/login/", v.login_request, name='login'),
     path("calculator/", views.calculator, name='calculator'),
+    path('update_printout/<str:pk>/', views.updatePrintout, name="update_printout"),
     path('', include("django.contrib.auth.urls")),
 
     path('password_reset/', auth_views.PasswordResetView.as_view(),

@@ -6,10 +6,14 @@ Kalkulator
 {% block content %}
 </br></br>
 <table>
-    <form method="POST">
+    <form action="" method="POST">
         {% csrf_token %}
         {{ form.as_table }}
 </table>
-<button class="btn btn-primary">Oblicz</button>
+
+<br>
+<button type="submit">Oblicz</button>
+<br><br>
+Cena: {{ price }}zł
 
 {% endblock %}

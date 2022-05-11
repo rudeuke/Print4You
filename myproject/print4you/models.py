@@ -39,7 +39,46 @@ class Printout(models.Model):
         default='1'
     )
     image_file = models.ImageField(upload_to='user_prints')
-    price = models.DecimalField(max_digits=9, decimal_places=2)
+    price = models.DecimalField(max_digits=9, decimal_places=2, blank=True)
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        if self.price is None:
+            if self.size == '10x15':
+                pr = 0.5
+            elif self.size == '13x18':
+                pr = 1
+            elif self.size == '15x21':
+                pr = 1.5
+            elif self.size == '20x25':
+                pr = 4
+            elif self.size == 'A4':
+                pr = 6
+            elif self.size == 'A3':
+                pr = 10
+            elif self.size == '50x60':
+                pr = 20
+            elif self.size == '100x50':
+                pr = 35
+            elif self.size == '100x70':
+                pr = 45
+            elif self.size == '160x60':
+                pr = 60
+            elif self.size == '140x100':
+                pr = 90
+            elif self.size == '118 1mb':
+                pr = 40
+
+            if self.is_gloss and self.is_color:
+                pr = pr*1.2
+            elif not self.is_gloss and not self.is_color:
+                pr = pr*0.8
+            elif self.is_gloss and not self.is_color:
+                pr = pr*0.96
+
+            pr = pr*self.quantity
+            self.price = pr
+            self.save()
 
 
 class Address(models.Model):
