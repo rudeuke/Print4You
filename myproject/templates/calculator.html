@@ -4,16 +4,18 @@ Kalkulator
 
 
 {% block content %}
-</br></br>
-<table>
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{ form.as_table }}
-</table>
-
-<br>
-<button type="submit">Oblicz</button>
-<br><br>
-Cena: {{ price }}zł
-
+<p>
+    <table>
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_table }}
+    </table>
+</p>
+<img src="{{ imagePath }}"/>
+<p>
+    <button type="submit">Oblicz cenę</button>
+</p>
+<p>
+    {{ price }}
+</p>
 {% endblock %}

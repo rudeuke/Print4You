@@ -11,7 +11,7 @@ def index(request):
 def calculator(request):
     form = PrintoutForm()
     if request.method == 'POST':
-        form = PrintoutForm(request.POST)
+        form = PrintoutForm(request.POST, request.FILES,)
         if form.is_valid():
             printout = form.save()
             return redirect('update_printout', pk=printout.pk)
@@ -24,11 +24,12 @@ def updatePrintout(request, pk):
     printout = Printout.objects.get(id=pk)
     form = PrintoutForm(instance=printout)
     if request.method == 'POST':
-        form = PrintoutForm(request.POST, instance=printout)
+        form = PrintoutForm(request.POST, request.FILES, instance=printout)
         if form.is_valid():
             printout.price = None
             form.save()
             return redirect('update_printout', pk=printout.pk)
-
-    context = {'form': form, 'price': printout.price}
+    priceString = f"Cena: {printout.price} zł"
+    imagePath = printout.image_file.url
+    context = {'form': form, 'price': priceString, 'imagePath': imagePath}
     return render(request, 'calculator.html', context)
