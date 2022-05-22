@@ -1,11 +1,9 @@
 # views.py
-from ast import Add
-from multiprocessing import context
-from unicodedata import name
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
+from register.forms import EditAddressForm
 from register.forms import SetAddressForm
 from register.forms import EditProfileForm
 from register.forms import RegisterForm
@@ -67,4 +65,12 @@ def add_address(request):
 	context = {'form':form}
 	return render(request, 'registration/set_address.html', context)
 	
+class AddressEditView(generic.UpdateView):
+	form_class = EditAddressForm
+	template_name = 'registration/edit_address.html'
+	success_url = reverse_lazy('login')
+
+	def get_object(self):
+		return self.request.user.address
+
 

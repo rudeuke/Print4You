@@ -16,6 +16,7 @@ Including another URLconf
 import imp
 from django.contrib import admin
 from django.urls import path, include
+from register.views import AddressEditView
 from register import views as v
 from print4you import views
 from django.contrib.auth import views as auth_views  
@@ -27,6 +28,7 @@ urlpatterns = [
     path("register/", v.register, name="register"),
     path("edit_profile/", UserEditView.as_view(), name="edit_profile"),
     path("set_address/", v.add_address, name="set_address"),
+    path("edit_address/", AddressEditView.as_view(), name="edit_address"),
     path('admin/', admin.site.urls),
     path("login", v.login_request, name="login"),
     path("accounts/login/", v.login_request, name='login'),
