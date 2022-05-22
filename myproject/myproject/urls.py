@@ -13,7 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from xml.dom.minidom import Document
+
 from django.contrib import admin
 from django.urls import path, include
 from register import views as v
@@ -21,11 +21,14 @@ from print4you import views
 from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls.static import static
+from register.views import UserEditView
 
 urlpatterns = [
     path('index/', views.index, name='index'),
     path('app/', include('print4you.urls')),
     path("register/", v.register, name="register"),
+    path("edit_profile/", UserEditView.as_view(), name="edit_profile"),
+    path("set_address/", v.add_address, name="set_address"),
     path('admin/', admin.site.urls),
     path("login", v.login_request, name="login"),
     path("accounts/login/", v.login_request, name='login'),
