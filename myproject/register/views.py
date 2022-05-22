@@ -1,5 +1,6 @@
 # views.py
 from django.contrib.auth import login, authenticate
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
@@ -66,11 +67,24 @@ def add_address(request):
 	return render(request, 'registration/set_address.html', context)
 	
 class AddressEditView(generic.UpdateView):
+	
 	form_class = EditAddressForm
 	template_name = 'registration/edit_address.html'
 	success_url = reverse_lazy('login')
 
 	def get_object(self):
 		return self.request.user.address
+
+
+def address_redirect(request):
+	try:
+		if request.user.address is not None:
+			response = redirect('/edit_address/')
+			return response
+	except:
+			response = redirect('/set_address/')
+			return response
+
+
 
 

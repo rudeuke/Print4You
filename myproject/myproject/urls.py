@@ -27,6 +27,8 @@ urlpatterns = [
     path('app/', include('print4you.urls')),
     path("register/", v.register, name="register"),
     path("edit_profile/", UserEditView.as_view(), name="edit_profile"),
+    path('address_redirect/', v.address_redirect),
+    #path("address/", v.Address_exists, name="address"),
     path("set_address/", v.add_address, name="set_address"),
     path("edit_address/", AddressEditView.as_view(), name="edit_address"),
     path('admin/', admin.site.urls),
