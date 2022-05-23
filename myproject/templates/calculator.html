@@ -1,0 +1,27 @@
+{% block title %}
+Kalkulator
+{% endblock %}
+
+
+{% block content %}
+<p>
+    <table>
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_table }}
+    </table>
+</p>
+<img src="{{ imagePath }}" />
+<p>
+    <button type="submit">Oblicz cenę</button>
+</p>
+<p>
+    {{ price }}
+</p>
+{% if printout %}
+<p>
+    <a href="{% url 'new_order' pk=printout.id %}">Zamów</a>
+</p>
+{% endif %}
+
+{% endblock %}

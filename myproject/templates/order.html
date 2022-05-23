@@ -1,0 +1,18 @@
+{% block title %}
+Zamówienie
+{% endblock %}
+
+
+{% block content %}
+<p>
+    <table>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ orderForm.as_table }}
+            {{ addressForm.as_table }}
+    </table>
+</p>
+<p>
+    <button type="submit">Przejdź do płatności</button>
+</p>
+{% endblock %}
