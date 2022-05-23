@@ -40,4 +40,3 @@ class SetAddressForm(forms.ModelForm):
     class Meta:
         model = Address
         fields = ["first_name", "last_name", "email", "city", "street", "home_number", "postal_code", "telephone_number", "user"]
-

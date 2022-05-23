@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from decimal import Decimal
 
 SIZE_CHOICES = (
     ('10x15', '10x15'),
@@ -23,9 +24,9 @@ PAYMENT_CHOICS = (
 )
 
 DELIVERY_CHOICES = (
-    ('poczta', 'Przesyłka pocztowa'),
-    ('kurier', 'Przesyłka kurierska'),
-    ('paczkomat', 'Odbiór w paczkomacie')
+    ('poczta', 'Przesyłka pocztowa (+6,70zł)'),
+    ('kurier', 'Przesyłka kurierska (+10,90zł)'),
+    ('paczkomat', 'Odbiór w paczkomacie (+8,99zł)')
 )
 
 
@@ -107,8 +108,22 @@ class Order(models.Model):
         default='poczta'
     )
     is_paid = models.BooleanField(default=False)
-    cost = models.DecimalField(max_digits=9, decimal_places=2)
+    cost = models.DecimalField(max_digits=9, decimal_places=2, blank=True)
     printout = models.OneToOneField(Printout, on_delete=models.CASCADE)
     address = models.OneToOneField(Address, on_delete=models.CASCADE)
     user = models.ForeignKey(
         User, on_delete=models.SET_NULL, blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        if self.cost == 0:
+            if self.delivery_method == 'poczta':
+                deliveryCost = 6.70
+            elif self.delivery_method == 'kurier':
+                deliveryCost = 10.90
+            elif self.delivery_method == 'paczkomat':
+                deliveryCost = 8.99
+
+            totalCost = self.printout.price + Decimal(deliveryCost)
+            self.cost = totalCost
+            self.save()
