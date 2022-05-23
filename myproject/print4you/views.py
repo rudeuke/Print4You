@@ -7,11 +7,11 @@ from print4you.forms import PrintoutForm, OrderForm, AddressForm
 def index(request):
     return HttpResponse("hello world")
 
-
 def calculator(request):
+    printout = Printout(price=-1)
     form = PrintoutForm()
     if request.method == 'POST':
-        form = PrintoutForm(request.POST, request.FILES,)
+        form = PrintoutForm(request.POST, request.FILES, instance=printout)
         if form.is_valid():
             printout = form.save()
             return redirect('update_printout', pk=printout.pk)
@@ -26,7 +26,7 @@ def updatePrintout(request, pk):
     if request.method == 'POST':
         form = PrintoutForm(request.POST, request.FILES, instance=printout)
         if form.is_valid():
-            printout.price = None
+            printout.price = -1
             form.save()
             return redirect('update_printout', pk=printout.pk)
     priceString = f"Cena: {printout.price} zł"
