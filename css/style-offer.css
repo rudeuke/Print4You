@@ -1,0 +1,90 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Ubuntu',sans-serif;
+  color: black;
+  background-color: #444;
+}
+
+.navbar {
+  background-color: #fabb0c;
+  text-transform: uppercase;
+  font-weight: bold;
+  z-index: 5;
+}
+
+.navbar .nav-link, .navbar .navbar-brand {
+  color: white;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+
+.navbar .mint-text {
+  color: #3eb489;
+}
+
+.navbar .nav-link:hover, .navbar .navbar-brand:hover {
+  color: #3eb489;
+}
+
+.login-btn {
+  margin-right: 15px;
+}
+
+.footer {
+  height: 70px;
+  text-align: center;
+  color: white;
+}
+
+.footer a {
+  text-decoration: none;
+  color: white;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+
+.footer a:hover {
+  color: gold;
+}
+
+.footer .link {
+  font-size: 18px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.offers {
+  font-size: 1em;
+  height: 24vh;
+  background-color: #3eb489;
+  margin-top: 3vh;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.offers h2 {
+  font-weight: bold;
+}
+
+.offers .offer-text {
+  height: 24vh;
+  padding-top: 30px;
+}
+
+.offers .offer-img {
+  height: 24vh;
+}
+
+.offers .offer-img img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+/*# sourceMappingURL=style-offer.css.map */
