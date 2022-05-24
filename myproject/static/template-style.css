@@ -1,0 +1,78 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Ubuntu',sans-serif;
+  color: black;
+  background-color: #444;
+}
+
+.navbar {
+  background-color: #fabb0c;
+  text-transform: uppercase;
+  font-weight: bold;
+  z-index: 5;
+}
+
+.navbar .nav-link, .navbar .navbar-brand {
+  color: white;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+
+.navbar .mint-text {
+  color: #3eb489;
+}
+
+.navbar .nav-link:hover, .navbar .navbar-brand:hover {
+  color: #3eb489;
+}
+
+.login-btn {
+  margin-right: 15px;
+}
+
+.content {
+  height: 80vh;
+  background-color: #3eb489;
+  margin-top: 30px;
+  position: relavite;
+}
+.centering
+{
+
+  width: 25%;
+  height: 25%;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.footer {
+  height: 70px;
+  text-align: center;
+  color: white;
+}
+
+.footer a {
+  text-decoration: none;
+  color: white;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+
+.footer a:hover {
+  color: gold;
+}
+
+.footer .link {
+  font-size: 18px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+/*# sourceMappingURL=template-style.css.map */

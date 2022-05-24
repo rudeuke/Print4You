@@ -118,6 +118,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
+STATICFILES_DIRS = (os.path.join('static'), )
 
 STATIC_URL = 'static/'
 
@@ -135,7 +136,7 @@ MEDIA_URL = '/user_prints/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, '')
 
-#EMAIL CONFIGURATION
+# EMAIL CONFIGURATION
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
