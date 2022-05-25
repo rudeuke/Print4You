@@ -1,7 +1,7 @@
 {% extends 'template.html' %}
 {% load static %}
 		{% block title %}
-		<p class="title">Zaloguj się</p>
+		<p class="title">Zaloguj się <i class="fa-solid fa-right-to-bracket"></i></p>
 		{% endblock %}
 			
 		{% load crispy_forms_tags %}
@@ -14,20 +14,22 @@
 		<p></p><a href="{% url "password_reset" %}">Zapomniałeś hasło?</a></p>
 		<button type="submit" class="btn btn-success" ">Zaloguj</button>	
 		</form>
-
+		
 <style>
 	.login-form
 	{
 		font-weight: bold;
 		font-size: 20px;
+		
 	}
 	.title
 	{
 		font-size: 30px;
 		font-weight: bold;
 	}
+	
 </style>
-		{% endblock %}
-			
+		
+			{% endblock %}
 			
 
