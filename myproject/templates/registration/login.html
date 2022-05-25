@@ -1,5 +1,6 @@
 {% extends 'template.html' %}
 {% load static %}
+
 		{% block title %}
 		<p class="title">Zaloguj się</p>
 		{% endblock %}
@@ -7,6 +8,7 @@
 		{% load crispy_forms_tags %}
 			
 		{% block content %}
+		
 		<form method="post" class="login-form">
 		{% csrf_token %}
 		{{form|crispy}}

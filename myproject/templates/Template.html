@@ -44,7 +44,13 @@
   </nav>
 <main>
   <div class="content">
+    {% for msg in messages %}
+	    <div class="alert alert-success" role="alert" style="text-align: center">
+		    {{ msg }}
+	    </div>
+	  {% endfor %}
     <div class="centering">
+      
 {% block title %}
 {% endblock %}
 {% block content %}
