@@ -1,7 +1,7 @@
 {% extends 'template.html' %}
 {% load static %}
 		{% block title %}
-		<p class="title">Zaloguj się <i class="fa-solid fa-right-to-bracket"></i></p>
+		<h1>Zaloguj się <i class="fa-solid fa-right-to-bracket"></i></h1>
 		{% endblock %}
 			
 		{% load crispy_forms_tags %}
@@ -22,12 +22,16 @@
 		font-size: 20px;
 		
 	}
-	.title
+	h1
 	{
 		font-size: 30px;
 		font-weight: bold;
 	}
-	
+	.btn-success
+	{
+		background-color: #fabb0c;
+		color:black;
+	}
 </style>
 		
 			{% endblock %}

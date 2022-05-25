@@ -39,18 +39,17 @@ body {
 .content {
   height: 80vh;
   background-color: #3eb489;
-  margin-top: 30px;
+  margin-top: 90px;
   position: relavite;
+  
 }
 .centering
 {
-
-  width: 25%;
-  height: 25%;
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  min-width: 250px;
 }
 .footer {
   height: 70px;
@@ -74,5 +73,3 @@ body {
   font-weight: normal;
   text-transform: uppercase;
 }
-
-/*# sourceMappingURL=template-style.css.map */
