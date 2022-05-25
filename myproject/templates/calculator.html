@@ -1,28 +1,107 @@
 {% extends 'template.html' %}
 {% block title %}
-Kalkulator
+<h1>Kalkulator</h1>
 {% endblock %}
 
 
 {% block content %}
-<p>
-    <table>
-        <form action="" method="POST" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.as_table }}
-    </table>
-</p>
-<img src="{{ imagePath }}"  style="max-width: 400px; max-height: 400px;"/>
-<p>
-    <button type="submit">Oblicz cenę</button>
-</p>
-<p>
-    {{ price }}
-</p>
-{% if printout %}
-<p>
-    <a href="{% url 'new_order' pk=printout.id %}">Zamów</a>
-</p>
-{% endif %}
+<div class="block-calculator">
+<div class="container cont ">
+    <div class="row">
+        <div class="left-side col-6">
+            <p>
+                <table>
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_table }}
+                </table>
+            </p>
+            
+            <p>
+                <button class="btn-calc" type="submit">Oblicz cenę</button>
+            </p>
+            </div>
+            {% if printout %}
+            
+            
+            <div class="right-side col-6">
+                <img src="{{ imagePath }}"  class="user-photo"/>
+                
+                <p class="price">
+                    {{ price }}
+                </p>
+                <p>
+                    <a class="btn-calc" href="{% url 'new_order' pk=printout.id %}">Zamów</a>
+                </p>
+                </div>
+            </div>
+            {% endif %}
+    </div>
+</div>
 
+<style>
+    .left-side
+    {
+        width: 500px;
+    }
+    .right-side
+    {
+        
+        width: 450px;
+        text-align: center;
+        width: 500px;
+    }
+    
+    .right-side img
+    {
+        max-width: 500px;
+        
+    }
+    h1
+	{
+		font-size: 30px;
+		font-weight: bold;
+	}
+    .cont
+    {
+        width: 1000px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    
+    .price
+    {
+        font-size: 25px;
+    }
+    .btn-calc
+    {
+        text-decoration: none;
+        background-color: #fabb0c;
+        padding:10px;
+        color:black;
+        transition:color 0.2s;
+        border:none;
+        font-weight: bold;
+    }
+    .btn-calc:hover 
+    {
+        color:#3eb489;
+    }
+    #id_quantity
+    {
+        width: 50px;
+    }
+    label
+    {
+        width:150px;
+        padding-bottom:12px;
+    }
+    .img-link
+    {
+       background: red;
+        
+    }
+   
+   
+</style>
 {% endblock %}
