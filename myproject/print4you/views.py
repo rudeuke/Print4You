@@ -4,8 +4,20 @@ from print4you.models import Printout, Order
 from print4you.forms import PrintoutForm, OrderForm, AddressForm
 
 
-def index(request):
-    return HttpResponse("hello world")
+def homepage(request):
+    return render(request, 'homepage.html')
+
+def offer(request):
+    return render(request, 'offer.html')
+
+def order(request):
+    return render(request, 'order.html')
+
+def login(request):
+    return render(request, 'login.html')
+
+def register(request):
+    return render(request, 'calculator.html')
 
 def calculator(request):
     printout = Printout(price=-1)

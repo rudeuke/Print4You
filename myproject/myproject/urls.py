@@ -24,7 +24,10 @@ from django.conf.urls.static import static
 from register.views import UserEditView
 
 urlpatterns = [
-    path('index/', views.index, name='index'),
+    
+    path('homepage/', views.homepage, name='homepage'),
+    path('order/', views.order, name='order'),
+    path('offer/', views.offer, name='offer'),
     path('app/', include('print4you.urls')),
     path("register/", v.register, name="register"),
     path("edit_profile/", UserEditView.as_view(), name="edit_profile"),

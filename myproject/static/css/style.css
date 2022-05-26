@@ -1,0 +1,132 @@
+* {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Ubuntu',sans-serif;
+    color: black;
+    background-color: #444;
+  }
+  
+  .navbar {
+    background-color: #fabb0c;
+    text-transform: uppercase;
+    font-weight: bold;
+    z-index: 5;
+  }
+  
+  .navbar .nav-link, .navbar .navbar-brand {
+    color: white;
+    -webkit-transition: color 0.3s;
+    transition: color 0.3s;
+  }
+  
+  .navbar .blue-text {
+    color: #3eb489;
+  }
+  
+  .navbar .nav-link:hover, .navbar .navbar-brand:hover {
+    color: #3eb489;
+  }
+  
+  .login-btn {
+    margin-right: 15px;
+  }
+  
+  .header-cards {
+    height: 50vh;
+  }
+  
+  .card {
+    text-align: center;
+    border: none;
+    padding: 0px 30px 30px 0px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  
+  .card .card-title {
+    font-size: 30px;
+  }
+  
+  .card .card-body {
+    background-color: #3eb489;
+  }
+  
+  .card .card-text {
+    font-size: 24px;
+  }
+  
+  .card .card-img-top {
+    height: 100%;
+  }
+  
+  .about-offer {
+    background-image: url(/img/printer.jpg);
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    font-size: 30px;
+    z-index: 1;
+    color: white;
+    text-align: center;
+  }
+  
+  .about-offer .container {
+    padding: 15px;
+  }
+  
+  .about-offer .about-offer-shadow {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    z-index: -1;
+  }
+  
+  .about-offer .fa-star {
+    color: gold;
+  }
+  
+  .about-offer .fa-message {
+    color: royalblue;
+  }
+  
+  .about-offer .fa-box-archive {
+    color: #3eb489;
+  }
+  
+  .about-offer .about-card-title {
+    font-size: 35px;
+  }
+  
+  .about-offer .about-card-text {
+    font-size: 27px;
+  }
+  
+  .footer {
+    height: 70px;
+    text-align: center;
+    color: white;
+  }
+  
+  .footer a {
+    text-decoration: none;
+    color: white;
+    -webkit-transition: color 0.3s;
+    transition: color 0.3s;
+  }
+  
+  .footer a:hover {
+    color: gold;
+  }
+  
+  .footer .link {
+    font-size: 18px;
+    font-weight: normal;
+    text-transform: uppercase;
+  }
+  /*# sourceMappingURL=style.css.map */

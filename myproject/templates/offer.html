@@ -1,10 +1,8 @@
-
-
 <!DOCTYPE html>
 <html lang="pl">
 
 <head>
-    {% load static%}
+    {%load static%}
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,24 +12,24 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/f394a4746b.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href={% static 'css/template.css'%}>
+  <link rel="stylesheet" href="{% static 'css/style-offer.css'%}">
   <title>Print4You</title>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="82">
   <nav id="navbar" class="navbar navbar-expand-lg position-static top-0 w-100 py-3">
     <div class="container">
-      <a class="navbar-brand white-text" href="#"><i class="fa-solid fa-print"></i>Print<span class="mint-text">4You</span></a>
+      <a class="navbar-brand white-text" href="#"><i class="fa-solid fa-print"></i>Print<span class="blue-text">4You</span></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <i class="fa-solid fa-bars"></i>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href={% url "homepage" %}>Home</a>
           <a class="nav-link" href="#">kontakt</a>
           <a class="nav-link" href="#">o nas</a>
-          <a class="nav-link" href="offer.html">oferta</a>
+          <a class="nav-link" href="#">oferta</a>
           <a class="nav-link" href="#">zamów</a>
           </div>
           <div class="navbar-nav ms-auto">
@@ -43,37 +41,54 @@
     </div>
   </nav>
 <main>
-<div class="content">
-   
-    {% block title %}
-    Kalkulator
-    {% endblock %}
-    
-    
-    {% block content %}
-    <p>
-        <table>
-            <form action="" method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form.as_table }}
-        </table>
-    </p>
-    <img src="{{ imagePath }}" />
-    <p>
-        <button type="submit">Oblicz cenę</button>
-    </p>
-    <p>
-        {{ price }}
-    </p>
-    {% if printout %}
-    <p>
-        <a href="{% url 'new_order' pk=printout.id %}">Zamów</a>
-    </p>
-    {% endif %}
-    
-    {% endblock %}
-
+<div class="all-offers">
+    <div class="offers">
+        <div class="container">
+            <div class="row">
+            <div class="col-6 offer-text">
+                <h2>zdjęcia</h2>
+                <p>papier: mat / błyszczący</p>
+                <p>druk: kolorowy / czarnobiały</p>
+                <p> format: 9X13 / 10X15 / A4 / A3</p>
+            </div>
+            <div class="col-6 offer-img">
+                <img src="{% static 'img/photos.jpg' %}" alt="zdjęcia">
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="offers">
+      <div class="container">
+          <div class="row">
+          <div class="col-6 offer-text">
+              <h2>plakat</h2>
+              <p>papier: mat / błyszczący</p>
+              <p>druk: kolorowy / czarnobiały</p>
+              <p>format: 50x70 / 80x100 / 12x160</p>
+          </div>
+          <div class="col-6 offer-img">
+              <img src="{% static 'img/poster.jpg' %}" alt="plakaty">
+          </div>
+          </div>
+      </div>
+  </div>
+  <div class="offers">
+    <div class="container">
+        <div class="row">
+        <div class="col-6 offer-text">
+            <h2>duży format</h2>
+            <p>papier: mat / błyszczący</p>
+            <p>druk: kolorowy / czarnobiały</p>
+            <p>format: 800mm / 1000mm / 1200mm</p>
+        </div>
+        <div class="col-6 offer-img">
+            <img src="{% static 'img/bigformat.jpg' %}" alt="plakaty">
+        </div>
+        </div>
+    </div>
 </div>
+</div>
+    
 
 </main>
 <footer class="footer">
