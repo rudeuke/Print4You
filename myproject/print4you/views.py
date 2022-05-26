@@ -1,7 +1,10 @@
+from multiprocessing import context
+from apischema import order
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from print4you.models import Printout, Order
 from print4you.forms import PrintoutForm, OrderForm, AddressForm
+from django.contrib import messages
 
 
 def homepage(request):
@@ -64,6 +67,7 @@ def newOrder(request, pk):
             addressForm = AddressForm(instance=address)
 
     if request.method == 'POST':
+        currentUser = request.user
         addressForm = AddressForm(request.POST)
         if addressForm.is_valid():
             address = addressForm.save()
@@ -73,7 +77,23 @@ def newOrder(request, pk):
         orderForm = OrderForm(request.POST, instance=order)
         if orderForm.is_valid():
             order = orderForm.save()
-            return redirect('/')
+            return redirect('payment', pk=order.pk)
 
     context = {'orderForm': orderForm, 'addressForm': addressForm}
     return render(request, 'order.html', context)
+
+def payment(request, pk):
+    
+    order = Order.objects.get(id=pk)
+    context = {'order': order}
+
+    
+    if request.method == 'POST':
+        order.is_paid = True
+        order.save()
+        messages.success(request, "Opłacono zamówienie. Dziękujemy!" )
+        return redirect('payment', pk=order.pk)
+    
+
+    return render(request, 'payment.html', context)
+

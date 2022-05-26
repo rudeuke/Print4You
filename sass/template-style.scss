@@ -1,0 +1,72 @@
+@import "colors";
+*
+{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body
+{
+    
+    font-family: 'Ubuntu',sans-serif;
+    
+    color: black;
+    background-color: #444;
+}
+.navbar
+{
+    background-color:$orange-color;
+    text-transform: uppercase;
+    font-weight: bold;
+    z-index: 5;
+   .nav-link,.navbar-brand
+   {
+       color:white;
+       transition: color 0.3s;
+   }
+   .mint-text
+   {
+       color:$mint-color;
+   }
+   .nav-link:hover,.navbar-brand:hover
+   {
+       color:$mint-color;
+
+   }
+}
+.login-btn
+{
+    margin-right: 15px;
+}
+.content
+{
+    height: 80vh;
+    background-color: $mint-color;
+    margin-top:30px;
+    position:relavite;
+    
+}
+
+.footer
+{
+    height: 70px;
+    text-align: center;
+    color:white;
+    a
+    {
+        text-decoration: none;
+        color:white;
+        transition:color 0.3s;
+    }
+    a:hover
+    {
+        color:gold;
+    }
+    .link
+    {
+        font-size: 18px;
+        font-weight: normal;
+        text-transform: uppercase;
+        
+    }
+}
