@@ -47,9 +47,20 @@
   </nav>
   <main>
     {% for msg in messages %}
-	    <div class="alert alert-success" role="alert" style="text-align: center">
-		    {{ msg }}
-	    </div>
+      {% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %} 
+        <div class="alert alert-success" role="alert" style="text-align: center">
+          {{ msg }}
+        </div> 
+      {% elif msg.level == DEFAULT_MESSAGE_LEVELS.INFO %} 
+        <div class="alert alert-info" role="alert" style="text-align: center">
+          {{ msg }}
+        </div> 
+      {% elif msg.level == DEFAULT_MESSAGE_LEVELS.ERROR %} 
+        <div class="alert alert-danger" role="alert" style="text-align: center">
+          {{ msg }}
+        </div> 
+      {% endif %}
+      
 	  {% endfor %}
     <section id="offer" class="offer bg-light py-3">
       <div class="container">

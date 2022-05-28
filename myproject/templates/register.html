@@ -3,13 +3,17 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+{% if not user.is_authenticated %}
     <form method="POST" class="form-group login-form">
 	{% csrf_token %}
 	{{ form|crispy }}
 	<button type="submit" class="btn btn-success">Zarejestruj</button>
 	<p>Masz już konto? Zaloguj się <a href= "{% url 'login' %}">tutaj</a></p>
     </form>
-
+{% else %}
+	<h1>Masz już konto!</h1>
+	<p>Możesz sprawdzić swoje konto <a href="{% url "profile" %}">tutaj!</a></p>
+{% endif %}
 <style>
 	.login-form
 	{

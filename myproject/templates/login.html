@@ -2,13 +2,18 @@
 {% load static %}
 
 		{% block title %}
+		{% if user.is_authenticated %}
+		<h1>Jesteś już zalogowany!</h1>
+		<p>Możesz sprawdzić swoje konto <a href="{% url "profile" %}">tutaj!</a></p>
+		{% else %}
 		<h1>Zaloguj się <i class="fa-solid fa-right-to-bracket"></i></h1>
+		{% endif %}
 		{% endblock %}
 			
 		{% load crispy_forms_tags %}
 			
 		{% block content %}
-		
+		{% if not user.is_authenticated %}
 		<form method="post" class="login-form">
 		{% csrf_token %}
 		{{form|crispy}}
@@ -16,6 +21,7 @@
 		<p></p><a href="{% url "password_reset" %}">Zapomniałeś hasło?</a></p>
 		<button type="submit" class="btn btn-success" ">Zaloguj</button>	
 		</form>
+		{% endif %}
 		
 <style>
 	.login-form

@@ -38,7 +38,7 @@ def login_request(request):
 			user = authenticate(username=username, password=password)
 			if user is not None:
 				login(request, user)
-				messages.info(request, f"Jesteś zalogowany jako {username}.")
+				messages.success(request, f"Jesteś zalogowany jako {username}.")
 				return redirect("homepage")
 			else:
 				messages.error(request,"Niewłaściwa nazwa użytkownika lub hasło.")
@@ -69,7 +69,7 @@ def add_address(request):
 
 	if request.method == 'POST':
 		form = SetAddressForm(request.POST)
-		messages.success(request, 'Zapisano dane adresu.')
+		messages.info(request, 'Zapisano dane adresu.')
 		if form.is_valid():
 			form.save()
 	
