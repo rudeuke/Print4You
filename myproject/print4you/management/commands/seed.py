@@ -120,7 +120,7 @@ def addOrders():
     address2.save()
 
     order1 = Order(
-        payment_method='karta kredytowa',
+        payment_method='karta',
         delivery_method='kurier',
         is_paid=True,
         cost=123.4,
@@ -131,7 +131,7 @@ def addOrders():
 
     order2 = Order(
         payment_method='blik',
-        delivery_method='kurier',
+        delivery_method='paczkomat',
         is_paid=True,
         cost=32.1,
         printout=printout2,

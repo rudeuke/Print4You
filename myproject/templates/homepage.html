@@ -2,6 +2,7 @@
 <html lang="pl">
 
 <head>
+  {% load static %}
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/f394a4746b.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href={% static 'css/style.css'%}>
   <title>Print4You</title>
 </head>
 
@@ -25,15 +26,15 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link" href="#">Home</a>
-          <a class="nav-link" href="#">kontakt</a>
+          <a class="nav-link" href={% url "homepage" %}>Home</a>
           <a class="nav-link" href="#">o nas</a>
-          <a class="nav-link" href="offer.html">oferta</a>
-          <a class="nav-link" href="#">zamów</a>
+          <a class="nav-link" href={% url "offer" %}>oferta</a>
+          <a class="nav-link" href={% url "calculator" %}>zamów</a>
           </div>
+          
           <div class="navbar-nav ms-auto">
-          <a class="nav-link login-btn" href="login.html">zaloguj</a>
-          <a class="nav-link signin-btn" href="#">rejestracja</a>
+          <a class="nav-link login-btn" href={% url "login" %}>zaloguj</a>
+          <a class="nav-link signin-btn" href={% url "register" %}>rejestracja</a>
           </div>
         
       </div>
@@ -45,7 +46,7 @@
         <div class="row">
           <div class="card-group">
             <div class="card bg-light">
-              <img src="img/photos.jpg" class="card-img-top" alt="...">
+              <img src="{% static 'img/photos.jpg' %}" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title"><i class="fa-solid fa-image"></i></h5>
                 <p class="card-text">Zdjęcia</p>
@@ -53,7 +54,7 @@
               </div>
             </div>
             <div class="card bg-light">
-              <img src="img/poster.jpg" class="card-img-top" alt="...">
+              <img src="{% static 'img/poster.jpg' %}" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title"><i class="fa-solid fa-panorama"></i></h5>
                 <p class="card-text">plakaty</p>
@@ -61,7 +62,7 @@
               </div>
             </div>
             <div class="card bg-light">
-              <img src="img/bigformat.jpg" class="card-img-top" alt="...">
+              <img src="{% static 'img/bigformat.jpg' %}" class="card-img-top" alt="...">
               <div class="card-body">
                 <h5 class="card-title"><i class="fa-solid fa-pencil"></i></h5>
                 <p class="card-text">Duży format</p>
@@ -92,7 +93,7 @@
                   <p class="about-card-text">Gwarantujemy bezpieczne pakowanie!</p>
                 </div>
                 <div class="order-text py-1">
-                  <p><button class="order-now">Zamów już teraz!</button></p>
+                  <p>Zamów już teraz!</p>
                 </div>
               </div>
             </div>

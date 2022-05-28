@@ -1,11 +1,27 @@
-{% block title %}Załóż nowe konto{% endblock %}
+
+{% extends 'template.html' %}
+{% block title %} <h1>Załóż nowe konto</h1> {% endblock %}
 {% load crispy_forms_tags %}
 
 {% block content %}
-    <form method="POST" class="form-group">
+    <form method="POST" class="form-group login-form">
 	{% csrf_token %}
 	{{ form|crispy }}
 	<button type="submit" class="btn btn-success">Zarejestruj</button>
 	<p>Masz już konto? Zaloguj się <a href= "{% url 'login' %}">tutaj</a></p>
     </form>
-{% endblock %}
+
+<style>
+	.login-form
+	{
+		font-weight: bold;
+		font-size: 20px;
+		
+	}
+	h1
+	{
+		font-size: 30px;
+		font-weight: bold;
+	}
+	
+</style>{% endblock %}

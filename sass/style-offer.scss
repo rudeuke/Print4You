@@ -1,0 +1,96 @@
+@import "colors";
+*
+{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body
+{
+    
+    font-family: 'Ubuntu',sans-serif;
+    
+    color: black;
+    background-color: #444;
+}
+.navbar
+{
+    
+    background-color:$orange-color;
+    text-transform: uppercase;
+    font-weight: bold;
+    z-index: 5;
+   .nav-link,.navbar-brand
+   {
+       color:white;
+       transition: color 0.3s;
+   }
+   .mint-text
+   {
+       color:$mint-color;
+   }
+   .nav-link:hover,.navbar-brand:hover
+   {
+       color:$mint-color;
+
+   }
+}
+.login-btn
+{
+    margin-right: 15px;
+}
+.footer
+{
+    height: 70px;
+    text-align: center;
+    color:white;
+    a
+    {
+        text-decoration: none;
+        color:white;
+        transition:color 0.3s;
+    }
+    a:hover
+    {
+        color:gold;
+    }
+    .link
+    {
+        font-size: 18px;
+        font-weight: normal;
+        text-transform: uppercase;
+        
+    }
+}
+
+.offers
+{
+    font-size: 1em;
+    height: 24vh;
+    
+    background-color:$mint-color;
+    margin-top:3vh;
+    text-align: center;
+    text-transform: uppercase;
+    h2
+    {
+        font-weight:bold;
+    }
+    .offer-text
+    {
+        height: 24vh; 
+        padding-top: 30px;
+    }
+    
+    .offer-img
+    {
+        height: 24vh;
+        img
+        {
+            width: auto;
+            height: auto;
+            max-width: 100%;
+            max-height: 100%;
+        } 
+    }
+}

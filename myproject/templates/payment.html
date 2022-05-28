@@ -1,0 +1,39 @@
+{% extends 'template.html' %}
+{% load static %}
+
+{% block title %}
+
+<p class="title"> Opłać zamówienie</p>
+{% endblock %}
+
+
+{% block content %}
+
+<p>
+    <table>
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <p>
+                Data: {{ order.date }} <br>
+                Metoda płatności: {{ order.payment_method }} <br>
+                Należność: {{ order.cost }}
+            </p>
+            <p>
+                <button type="submit">Opłać zamówienie</button>
+            </p>
+    </table>
+</p>
+
+
+<style>
+    .title
+	{
+		font-size: 30px;
+		font-weight: bold;
+	}
+</style>
+
+{% endblock %}
+
+

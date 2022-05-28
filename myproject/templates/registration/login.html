@@ -1,15 +1,39 @@
-{% block title %}
-Zaloguj się
-{% endblock %}
+{% extends 'template.html' %}
+{% load static %}
 
-{% load crispy_forms_tags %}
-
-{% block content %}
-     <form method="post" class="from-group">
-	{% csrf_token %}
-	{{form|crispy}}
-	<p>Nie masz konta? Stwórz je <a href="{% url "register" %}">tutaj</a></p>
-	<p></p><a href="{% url "password_reset" %}">Zapomniałeś hasło?</a></p>
-	<button type="submit" class="btn btn-success">Zaloguj</button>	
-    </form>
-{% endblock %}
+		{% block title %}
+		<h1>Zaloguj się <i class="fa-solid fa-right-to-bracket"></i></h1>
+		{% endblock %}
+			
+		{% load crispy_forms_tags %}
+			
+		{% block content %}
+		
+		<form method="post" class="login-form">
+		{% csrf_token %}
+		{{form|crispy}}
+		<p>Nie masz konta? Stwórz je <a href="{% url "register" %}">tutaj</a></p>
+		<p></p><a href="{% url "password_reset" %}">Zapomniałeś hasło?</a></p>
+		<button type="submit" class="btn btn-success" ">Zaloguj</button>	
+		</form>
+		
+<style>
+	.login-form
+	{
+		font-weight: bold;
+		font-size: 20px;
+		
+	}
+	h1
+	{
+		font-size: 30px;
+		font-weight: bold;
+	}
+	.btn-success
+	{
+		background-color: #fabb0c;
+		color:black;
+	}
+</style>
+		
+			{% endblock %}

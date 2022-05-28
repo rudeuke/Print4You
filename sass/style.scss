@@ -1,0 +1,150 @@
+@import "colors";
+*
+{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body
+{
+    
+    font-family: 'Ubuntu',sans-serif;
+    
+    color: black;
+    background-color: #444;
+}
+.navbar
+{
+    background-color:$orange-color;
+    text-transform: uppercase;
+    font-weight: bold;
+    z-index: 5;
+   .nav-link,.navbar-brand
+   {
+       color:white;
+       transition: color 0.3s;
+   }
+   .mint-text
+   {
+       color:$mint-color;
+   }
+   .nav-link:hover,.navbar-brand:hover
+   {
+       color:$mint-color;
+
+   }
+}
+.login-btn
+{
+    margin-right: 15px;
+}
+.header-cards
+{
+    height: 50vh;
+}
+
+.card
+{
+    text-align: center;
+    border:none;
+    padding: 0px 30px 30px 0px;
+    text-transform: uppercase;
+    font-weight: bold;
+    .card-title
+    {
+        font-size: 30px;
+    }
+    .card-body
+    {
+        background-color: $mint-color;
+    }
+    .card-text
+    {
+        font-size: 24px;
+        
+    }
+    .card-img-top
+    {
+        height: 100%;
+    }
+}
+.about-offer
+{
+    background-image: url(/img/printer.jpg);
+    position:relative;
+    background-size: cover;
+    background-position:center;
+    font-size: 30px;
+    z-index: 1;
+    color:white;
+    text-align: center;
+    .container
+    {
+        padding:15px;
+    }
+    
+    .about-offer-shadow
+    {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.8);
+    position:absolute;
+    z-index:-1;
+    }
+    .fa-star
+    {
+        color:gold;
+    }
+    .fa-message
+    {
+        color:royalblue;
+        
+    }
+    .fa-box-archive
+    {
+        color:$mint-color;
+    }
+    .about-card-title
+    {
+        font-size: 35px;
+    }
+    .about-card-text
+    {
+        font-size: 27px;
+    }
+}
+.order-now
+{
+    padding:5px;
+    border-radius: 30px;
+    background-color: $orange-color;
+    transition:0.2s
+}
+.order-now:hover
+{
+    background-color:$mint-color;
+    
+}
+.footer
+{
+    height: 70px;
+    text-align: center;
+    color:white;
+    a
+    {
+        text-decoration: none;
+        color:white;
+        transition:color 0.3s;
+    }
+    a:hover
+    {
+        color:gold;
+    }
+    .link
+    {
+        font-size: 18px;
+        font-weight: normal;
+        text-transform: uppercase;
+        
+    }
+}
