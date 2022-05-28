@@ -1,0 +1,21 @@
+{% extends 'template.html' %}
+{% block title %}
+<h1>Twój profil</h1>
+{% endblock %}
+{% for msg in messages %}
+	<div class="alert alert-success" role="alert" style="text-align: center">
+	    {{ msg }}
+    </div>
+{% endfor %}
+
+{% block content %}
+<p>
+    Witaj {{ user }}
+</p>
+<p>
+    <button onclick="window.location.href='/address_redirect/'">Edytuj adres</button>
+</p>
+<p>
+    <button onclick="window.location.href='/edit_profile/'">Edytuj dane osobowe</button>
+</p>
+{% endblock %}

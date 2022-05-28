@@ -26,18 +26,19 @@ from register.views import UserEditView
 
 urlpatterns = [
     
-    path('homepage/', views.homepage, name='homepage'),
+    path('homepage/', v.homepage, name='homepage'),
     path('order/', views.order, name='order'),
     path('offer/', views.offer, name='offer'),
     path('app/', include('print4you.urls')),
     path("register/", v.register, name="register"),
     path("edit_profile/", UserEditView.as_view(), name="edit_profile"),
     path('address_redirect/', v.address_redirect),
-    #path("address/", v.Address_exists, name="address"),
     path("set_address/", v.add_address, name="set_address"),
     path("edit_address/", AddressEditView.as_view(), name="edit_address"),
     path('admin/', admin.site.urls),
-    path("login", v.login_request, name="login"),
+    path("login/", v.login_request, name="login"),
+    path("logout/", views.logout_view, name="logout"),
+    path("profile", views.profile_view, name="profile"),
     path("accounts/login/", v.login_request, name='login'),
     path("calculator/", views.calculator, name='calculator'),
     path('update_printout/<str:pk>/',
@@ -54,6 +55,14 @@ urlpatterns = [
          name='password_reset_confirm'),
     path('reset/done/', auth_views.PasswordResetCompleteView.as_view(),
          name='password_reset_complete'),
+    path(
+        'password/',
+        auth_views.PasswordChangeView.as_view(
+            template_name='change_password.html',
+            success_url = '/'
+        ),
+        name='password'
+    ),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

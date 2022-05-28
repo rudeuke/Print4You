@@ -5,19 +5,14 @@ from django.http import HttpResponse
 from print4you.models import Printout, Order
 from print4you.forms import PrintoutForm, OrderForm, AddressForm
 from django.contrib import messages
+from django.contrib.auth import logout
 
-
-def homepage(request):
-    return render(request, 'homepage.html')
 
 def offer(request):
     return render(request, 'offer.html')
 
 def order(request):
     return render(request, 'order.html')
-
-def login(request):
-    return render(request, 'login.html')
 
 def register(request):
     return render(request, 'calculator.html')
@@ -96,4 +91,13 @@ def payment(request, pk):
     
 
     return render(request, 'payment.html', context)
+
+def logout_view(request):
+    logout(request)
+    # Redirect to a success page.
+    messages.success(request, "Pomyślnie wylogowano z konta.")
+    return redirect('homepage')
+
+def profile_view(request):
+    return render(request, 'profile.html')
 
