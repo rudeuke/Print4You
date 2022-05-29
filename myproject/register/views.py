@@ -75,6 +75,7 @@ def add_address(request):
 		messages.info(request, 'Zapisano dane adresu.')
 		if form.is_valid():
 			form.save()
+		return redirect("profile")
 	
 
 	context = {'form':form}
