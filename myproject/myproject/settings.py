@@ -148,7 +148,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'print4u.team@gmail.com'
-EMAIL_HOST_PASSWORD = 'print4YOU2137*'
+EMAIL_HOST_PASSWORD = 'yfgflwjzojxetqvi'
 
 LOGIN_URL = "/login/"
 LOGIN_REDIRECT_URL = "/homepage"
