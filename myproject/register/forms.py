@@ -29,7 +29,7 @@ class EditProfileForm(UserChangeForm):
 class SetAddressForm(forms.ModelForm):
     class Meta:
         model = Address
-        fields = ["first_name", "last_name", "email", "city", "street", "home_number", "postal_code", "telephone_number"]
+        fields = ["first_name", "last_name", "email", "city", "street", "home_number", "postal_code", "telephone_number", "user"]
         labels = {
             'first_name': ('Imię'),
             'last_name': ('Nazwisko'),
@@ -39,12 +39,13 @@ class SetAddressForm(forms.ModelForm):
             'home_number': ('Numer domu'),
             'postal_code': ('Kod pocztowy'),
             'telephone_number': ('Numer telefonu'),
-    }
+            }
+        widgets = {'user': forms.HiddenInput()}
 
 class EditAddressForm(forms.ModelForm):
     class Meta:
         model = Address
-        fields = ["first_name", "last_name", "email", "city", "street", "home_number", "postal_code", "telephone_number"]
+        fields = ["first_name", "last_name", "email", "city", "street", "home_number", "postal_code", "telephone_number", "user"]
         labels = {
             'first_name': ('Imię'),
             'last_name': ('Nazwisko'),
@@ -54,4 +55,5 @@ class EditAddressForm(forms.ModelForm):
             'home_number': ('Numer domu'),
             'postal_code': ('Kod pocztowy'),
             'telephone_number': ('Numer telefonu'),
-    }
+            }
+        widgets = {'user': forms.HiddenInput()}
