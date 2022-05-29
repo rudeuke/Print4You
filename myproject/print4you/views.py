@@ -1,3 +1,4 @@
+from asyncio.windows_events import NULL
 from multiprocessing import context
 from apischema import order
 from django.shortcuts import redirect, render
@@ -54,15 +55,22 @@ def newOrder(request, pk):
     currentUser = None
 
     if request.method == 'GET':
-        if request.user.is_authenticated and not request.user.is_staff:
-            currentUser = request.user
-            address = currentUser.address
-            address.pk = None
-            address.user = None
-            addressForm = AddressForm(instance=address)
-
+        try:
+            if request.user.address != None:
+                address_exists = True
+        except:
+            address_exists = False
+        if request.user.is_authenticated and not request.user.is_staff and address_exists == True:
+                currentUser = request.user
+                address = currentUser.address
+                #address.pk = None
+                #address.user = None
+                addressForm = AddressForm(instance=address)
+        
+                
     if request.method == 'POST':
-        currentUser = request.user
+        if request.user.is_authenticated:
+            currentUser = request.user
         addressForm = AddressForm(request.POST)
         if addressForm.is_valid():
             address = addressForm.save()
