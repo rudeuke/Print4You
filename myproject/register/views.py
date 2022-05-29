@@ -18,6 +18,9 @@ from print4you.models import User
 def homepage(request):
     return render(request, "homepage.html")
 
+def homepage_redirect(request):
+	return redirect("homepage")
+
 def register(request):
 	if request.method == "POST":
 		form = RegisterForm(request.POST)

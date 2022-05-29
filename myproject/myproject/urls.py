@@ -25,7 +25,8 @@ from django.conf.urls.static import static
 from register.views import UserEditView
 
 urlpatterns = [
-    
+
+    path('', v.homepage_redirect, name='homepage_redirect'),
     path('homepage/', v.homepage, name='homepage'),
     path('order/', views.order, name='order'),
     path('offer/', views.offer, name='offer'),
