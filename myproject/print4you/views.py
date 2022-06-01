@@ -1,11 +1,22 @@
+from asyncio.windows_events import NULL
+from multiprocessing import context
+from apischema import order
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from print4you.models import Printout, Order
 from print4you.forms import PrintoutForm, OrderForm, AddressForm
+from django.contrib import messages
+from django.contrib.auth import logout
 
 
-def index(request):
-    return HttpResponse("hello world")
+def offer(request):
+    return render(request, 'offer.html')
+
+def order(request):
+    return render(request, 'order.html')
+
+def register(request):
+    return render(request, 'calculator.html')
 
 def calculator(request):
     printout = Printout(price=-1)
@@ -44,14 +55,22 @@ def newOrder(request, pk):
     currentUser = None
 
     if request.method == 'GET':
-        if request.user.is_authenticated and not request.user.is_staff:
-            currentUser = request.user
-            address = currentUser.address
-            address.pk = None
-            address.user = None
-            addressForm = AddressForm(instance=address)
-
+        try:
+            if request.user.address != None:
+                address_exists = True
+        except:
+            address_exists = False
+        if request.user.is_authenticated and not request.user.is_staff and address_exists == True:
+                currentUser = request.user
+                address = currentUser.address
+                #address.pk = None
+                #address.user = None
+                addressForm = AddressForm(instance=address)
+        
+                
     if request.method == 'POST':
+        if request.user.is_authenticated:
+            currentUser = request.user
         addressForm = AddressForm(request.POST)
         if addressForm.is_valid():
             address = addressForm.save()
@@ -61,7 +80,32 @@ def newOrder(request, pk):
         orderForm = OrderForm(request.POST, instance=order)
         if orderForm.is_valid():
             order = orderForm.save()
-            return redirect('/')
+            return redirect('payment', pk=order.pk)
 
     context = {'orderForm': orderForm, 'addressForm': addressForm}
     return render(request, 'order.html', context)
+
+def payment(request, pk):
+    
+    order = Order.objects.get(id=pk)
+    context = {'order': order}
+
+    
+    if request.method == 'POST':
+        order.is_paid = True
+        order.save()
+        messages.success(request, "Opłacono zamówienie. Dziękujemy!" )
+        return redirect('payment', pk=order.pk)
+    
+
+    return render(request, 'payment.html', context)
+
+def logout_view(request):
+    logout(request)
+    # Redirect to a success page.
+    messages.success(request, "Pomyślnie wylogowano z konta.")
+    return redirect('homepage')
+
+def profile_view(request):
+    return render(request, 'profile.html')
+
