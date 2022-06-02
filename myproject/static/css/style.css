@@ -73,6 +73,7 @@
     z-index: 1;
     color: white;
     text-align: center;
+    padding-bottom:30px;
   }
   
   .about-offer .container {
@@ -135,12 +136,17 @@
     .card-group
     {
       padding:0px 30px;
-      
+      align-content: center;
     }
     .card
     {
-      max-width: 100%;
+      max-width: 70%;
       padding:0px;
+      
+        margin: 0 auto; /* Added */
+        float: none; /* Added */
+        margin-bottom: 10px; /* Added */
+
       
     }
     .card .card-body
@@ -177,5 +183,46 @@
     }
     }
 
+  }
+  @media (min-width:575px)
+  {
+   
+    .card 
+    {
+      padding: 0px 10px 0px 10px;
+    }
+    .card .card-body
+    {
+      height: 120px;
+      
+    }
+    .card .card-title,.about-card-item .about-card-title
+    {
+      font-size: 22px;
+    }
+    .card .card-text,.about-card-item .about-card-text
+    {
+      font-size: 17px;
+    }
+    
+  }
+  @media (min-width:768px)
+  {
+    .card .card-title,.about-card-item .about-card-title
+    {
+      font-size: 30px;
+    }
+    .card .card-text,.about-card-item .about-card-text
+    {
+      font-size: 25px;
+    }
+  }
+  @media (min-width:1024px)
+  {
+    .card .card-body
+    {
+      height: 140px;
+      
+    }
   }
   /*# sourceMappingURL=style.css.map */
