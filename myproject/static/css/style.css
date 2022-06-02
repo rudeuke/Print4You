@@ -65,7 +65,7 @@
   }
   
   .about-offer {
-    background-image: url(/img/printer.jpg);
+    background-image: url(../img/printer.jpg);
     position: relative;
     background-size: cover;
     background-position: center;
@@ -225,4 +225,4 @@
       
     }
   }
-  /*# sourceMappingURL=style.css.map */
+ 
