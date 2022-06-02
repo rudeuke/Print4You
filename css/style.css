@@ -141,4 +141,10 @@ body {
   font-weight: normal;
   text-transform: uppercase;
 }
+
+/*media*/
+@media (max-width:575px) {
+  
+}
+
 /*# sourceMappingURL=style.css.map */
