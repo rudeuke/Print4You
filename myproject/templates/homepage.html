@@ -33,34 +33,14 @@
           </div>
           
           <div class="navbar-nav ms-auto">
-            {% if user.is_authenticated %}
-            <a class="nav-link login-btn" href={% url "profile" %}>profil</a>
-            <a class="nav-link login-btn" href={% url "logout" %}>wyloguj</a>
-            {% else %}
-            <a class="nav-link login-btn" href={% url "login" %}>zaloguj</a>
-            <a class="nav-link signin-btn" href={% url "register" %}>rejestracja</a>
-            {% endif %}
+          <a class="nav-link login-btn" href={% url "login" %}>zaloguj</a>
+          <a class="nav-link signin-btn" href={% url "register" %}>rejestracja</a>
           </div>
         
       </div>
     </div>
   </nav>
   <main>
-    {% for msg in messages %}
-      {% if msg.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %} 
-        <div class="alert alert-success" role="alert" style="text-align: center">
-          {{ msg }}
-        </div> 
-      {% elif msg.level == DEFAULT_MESSAGE_LEVELS.INFO %} 
-        <div class="alert alert-info" role="alert" style="text-align: center">
-          {{ msg }}
-        </div> 
-      {% elif msg.level == DEFAULT_MESSAGE_LEVELS.ERROR %} 
-        <div class="alert alert-danger" role="alert" style="text-align: center">
-          {{ msg }}
-        </div> 
-      {% endif %}
-	  {% endfor %}
     <section id="offer" class="offer bg-light py-3">
       <div class="container">
         <div class="row">
@@ -86,6 +66,7 @@
               <div class="card-body">
                 <h5 class="card-title"><i class="fa-solid fa-pencil"></i></h5>
                 <p class="card-text">Duży format</p>
+                
               </div>
             </div>
           </div>
@@ -96,17 +77,17 @@
       <div class="about-offer-shadow"></div>
       <div class="container py-4">
         <div class="row">
-          <div class="col-sm-6 col-md-4 text-center about-card-item">
+          <div class="col-4 text-center about-card-item">
             <p><i class="fa-solid fa-star"></i>
               <p class="about-card-title mb-1">Jakość</p>
               <p class="about-card-text">Najwyższej jakości materiały!</p>
             </div>
-            <div class="col-sm-6 col-md-4 text-center about-card-item">
+            <div class="col-4 text-center about-card-item">
               <p><i class="fa-solid fa-message"></i>
                 <p class="about-card-title mb-1">Kontakt</p>
                 <p class="about-card-text">Stały kontakt z klientem!</p>
               </div>
-              <div class="col-sm-6 col-md-4 text-center about-card-item">
+              <div class="col-4 text-center about-card-item">
                 <p><i class="fa-solid fa-box-archive"></i>
                   <p class="about-card-title mb-1">Pakowanie</p>
                   <p class="about-card-text">Gwarantujemy bezpieczne pakowanie!</p>
@@ -121,10 +102,9 @@
           <footer class="footer">
             <div class="container">
               <div class="row">
-                <div class="col-3 link"><a href="#">oferta</a></div>
-                <div class="col-3 link"><a href="#">o nas</a></div>
-                <div class="col-3 link"><a href="#">zamów</a></div>
-                <div class="col-3 link"><a href="#">kontakt</a></div>
+                <div class="col-4 link"><a href="#">oferta</a></div>
+                <div class="col-4 link"><a href="#">o nas</a></div>
+                <div class="col-4 link"><a href="mailto:print4u.team@gmail.com">kontakt</a></div>
                <div class="col-12 company-name">Print4You@2022</div>
                
             </div>
