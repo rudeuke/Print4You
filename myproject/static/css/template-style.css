@@ -37,7 +37,7 @@ body {
 }
 
 .content {
-  height: 80vh;
+  height: 800px;
   background-color: #3eb489;
   margin-top: 90px;
   position: relavite;
@@ -73,4 +73,10 @@ body {
   font-weight: normal;
   text-transform: uppercase;
 }
-
+@media(max-width:500px)
+{
+  .content
+  {
+    height: 600px;
+  }
+}
