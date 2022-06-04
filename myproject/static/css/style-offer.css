@@ -40,6 +40,7 @@
     height: 70px;
     text-align: center;
     color: white;
+    margin-top:60px;
   }
   
   .footer a {
@@ -47,6 +48,7 @@
     color: white;
     -webkit-transition: color 0.3s;
     transition: color 0.3s;
+    
   }
   
   .footer a:hover {
@@ -60,27 +62,91 @@
   }
   
   .offers {
-    font-size: 1em;
-    height: 24vh;
     background-color: #3eb489;
-    margin-top: 3vh;
     text-align: center;
     text-transform: uppercase;
+    margin:30px 0px 30px 0px;
   }
   
   .offers .offer-text {
-    height: 24vh;
+   
     padding-top: 30px;
   }
   
   .offers .offer-img {
-    height: 24vh;
+    height: 100%;
+    
+    
   }
   
   .offers .offer-img img {
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: 100%;
+    padding:0px;
+    border:0px;
+    max-height:100%;
+    max-width:100%;
+    border:solid 1px white;
   }
-  /*# sourceMappingURL=style-offer.css.map */
+ .offer-row
+ {
+   height: 100%;
+ }
+ .container
+ {
+   height:100%;
+ }
+ @media (max-width:485px)
+ {
+    .offers
+    {
+      height:500px;
+    }
+    .footer .link
+    {
+      font-size: 15px;
+    }
+ }
+ @media(min-width:485px)
+ {
+   .offer-row{
+     height: 50%;
+   }
+ }
+ @media(min-width:485px)
+ {
+   .offers
+   {
+     height: 500px;
+   }
+
+ }
+ @media(min-width:576px)
+ {
+   .offers
+   {
+    height: 165px;
+   }
+   .offer-row{
+    height: 100%;
+  }
+  .offers .offer-text {
+   padding:0px;
+   font-size: 15px;
+  }
+}
+  @media(min-width:768px)
+ {
+   .offers
+   {
+    height: 225px;
+    
+   }
+   .offer-row{
+    height: 100%;
+  }
+  .offers .offer-text {
+   padding:30px;
+   font-size: 17px;
+  }
+ }
+ 
+ 

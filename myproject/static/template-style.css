@@ -73,3 +73,7 @@ body {
   font-weight: normal;
   text-transform: uppercase;
 }
+@media(min-width:320px)
+{
+  
+}
