@@ -6,102 +6,123 @@
 
 {% block content %}
 <div class="block-calculator">
-<div class="container cont ">
-    <div class="row">
-        <div class="left-side col-6">
-            <p>
+    <div class="container cont ">
+        <div class="row">
+            <div class="left-side col-6">
+                <p>
                 <table>
                     <form action="" method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
                         {{ form.as_table }}
                 </table>
-            </p>
-            
-            <p>
-                <button class="btn-calc" type="submit">Oblicz cenę</button>
-            </p>
+                </p>
+
+                <p>
+                    <button class="btn-calc" type="submit">Oblicz cenę</button>
+                </p>
             </div>
             {% if printout %}
-            
-            
+
             <div class="right-side col-6">
-                <img src="{{ imagePath }}"  class="user-photo"/>
-                
+
+                {% if printout.is_color %}
+                    {% if printout.is_gloss %}
+                    <img src="{{ imagePath }}" class="user-photo glossy" />
+                    {% else %}
+                    <img src="{{ imagePath }}" class="user-photo non-glossy" />
+                    {% endif %}
+                {% else %}
+                    {% if printout.is_gloss %}
+                    <img src="{{ imagePath }}" class="user-photo grayscale glossy" />
+                    {% else %}
+                    <img src="{{ imagePath }}" class="user-photo grayscale-non-glossy" />
+                    {% endif %}
+                {% endif %}
+
                 <p class="price">
                     {{ price }}
                 </p>
                 <p>
                     <a class="btn-calc" href="{% url 'new_order' pk=printout.id %}">Zamów</a>
                 </p>
-                </div>
             </div>
-            {% endif %}
+        </div>
+        {% endif %}
     </div>
 </div>
 
 <style>
-    .left-side
-    {
+    .left-side {
         width: 500px;
     }
-    .right-side
-    {
-        
+
+    .right-side {
+
         width: 450px;
         text-align: center;
         width: 500px;
     }
-    
-    .right-side img
-    {
+
+    .right-side img {
         max-width: 500px;
-        
     }
-    h1
-	{
-		font-size: 30px;
-		font-weight: bold;
-	}
-    .cont
-    {
+
+    h1 {
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    .cont {
         width: 1000px;
         font-size: 20px;
         font-weight: bold;
     }
-    
-    .price
-    {
+
+    .price {
         font-size: 25px;
     }
-    .btn-calc
-    {
+
+    .btn-calc {
         text-decoration: none;
         background-color: #fabb0c;
-        padding:10px;
-        color:black;
-        transition:color 0.2s;
-        border:none;
+        padding: 10px;
+        color: black;
+        transition: color 0.2s;
+        border: none;
         font-weight: bold;
     }
-    .btn-calc:hover 
-    {
-        color:#3eb489;
+
+    .btn-calc:hover {
+        color: #3eb489;
     }
-    #id_quantity
-    {
+
+    #id_quantity {
         width: 50px;
     }
-    label
-    {
-        width:150px;
-        padding-bottom:12px;
+
+    label {
+        width: 150px;
+        padding-bottom: 12px;
     }
-    .img-link
-    {
-       background: red;
-        
+
+    .img-link {
+        background: red;
     }
-   
-   
+
+    .glossy {
+        box-shadow: 0px 0px 20px #fff;
+    }
+
+    .non-glossy{
+        filter: contrast(70%);
+    }
+
+    .grayscale{
+        filter: grayscale(1);
+    }
+
+    .grayscale-non-glossy{
+        filter: grayscale(1) contrast(70%);
+    }
 </style>
 {% endblock %}
