@@ -1,4 +1,4 @@
-{% extends 'template.html' %}
+{% extends 'calculator-template.html' %}
 {% block title %}
 <h1>Kalkulator</h1>
 {% endblock %}
@@ -8,7 +8,7 @@
 <div class="block-calculator">
     <div class="container cont ">
         <div class="row">
-            <div class="left-side col-6">
+            <div class="left-side col-12 col-lg-6">
                 <p>
                 <table>
                     <form action="" method="POST" enctype="multipart/form-data">
@@ -23,7 +23,7 @@
             </div>
             {% if printout %}
 
-            <div class="right-side col-6">
+            <div class="right-side col-12 col-lg-6">
 
                 {% if printout.is_color %}
                     {% if printout.is_gloss %}
@@ -52,18 +52,26 @@
 </div>
 
 <style>
-    .left-side {
-        width: 500px;
+    .container
+    {
+        width:100%;
     }
+    #id_image_file
+      {
+          display:block;
+      }
 
+    .left-side
+    {
+        overflow: hidden;
+    }
     .right-side {
-
-        width: 450px;
+        
         text-align: center;
-        width: 500px;
     }
 
     .right-side img {
+
         max-width: 500px;
     }
 
@@ -73,7 +81,7 @@
     }
 
     .cont {
-        width: 1000px;
+       
         font-size: 20px;
         font-weight: bold;
     }
@@ -124,5 +132,50 @@
     .grayscale-non-glossy{
         filter: grayscale(1) contrast(70%);
     }
+    *
+    {
+        max-width: 100%;
+    }
+    @media(max-width:500px)
+    {
+        .right-side
+        {
+            max-width: 300px;
+            margin:auto;
+        }
+        .left-side
+        {
+            max-width: 300px;
+            
+        }
+      
+      #id_image_file
+      {
+          width:100px;
+          font-size: 15px;
+      }
+        .right-side img {
+        max-width: 100%;
+        
+    }
+    .row
+    {
+        margin:auto;
+        padding: 10px;
+    }
+    }
+    @media(min-width:1000px)
+    {
+       .left-side
+       {
+        padding-right:30px;
+       }
+       .right-side
+       {
+           padding-left: 30px;
+       }
+       
+    }
+   
 </style>
 {% endblock %}

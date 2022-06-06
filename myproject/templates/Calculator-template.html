@@ -65,58 +65,10 @@
 	  {% endfor %}
     <div class="centering">
       
-      {% block title %}
-      <h1>Kalkulator</h1>
-      {% endblock %}
-      
-      
-      {% block content %}
-      <div class="block-calculator">
-          <div class="container cont ">
-              <div class="row">
-                  <div class="left-side col-6">
-                      <p>
-                      <table>
-                          <form action="" method="POST" enctype="multipart/form-data">
-                              {% csrf_token %}
-                              {{ form.as_table }}
-                      </table>
-                      </p>
-      
-                      <p>
-                          <button class="btn-calc" type="submit">Oblicz cenę</button>
-                      </p>
-                  </div>
-                  {% if printout %}
-      
-                  <div class="right-side col-6">
-      
-                      {% if printout.is_color %}
-                          {% if printout.is_gloss %}
-                          <img src="{{ imagePath }}" class="user-photo glossy" />
-                          {% else %}
-                          <img src="{{ imagePath }}" class="user-photo non-glossy" />
-                          {% endif %}
-                      {% else %}
-                          {% if printout.is_gloss %}
-                          <img src="{{ imagePath }}" class="user-photo grayscale glossy" />
-                          {% else %}
-                          <img src="{{ imagePath }}" class="user-photo grayscale-non-glossy" />
-                          {% endif %}
-                      {% endif %}
-      
-                      <p class="price">
-                          {{ price }}
-                      </p>
-                      <p>
-                          <a class="btn-calc" href="{% url 'new_order' pk=printout.id %}">Zamów</a>
-                      </p>
-                  </div>
-              </div>
-              {% endif %}
-          </div>
-      </div>
-      {% endblock %}
+{% block title %}
+{% endblock %}
+{% block content %}
+{% endblock %}
 </div>
 </div>
 
