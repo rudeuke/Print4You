@@ -79,4 +79,9 @@ body {
   {
     height: 600px;
   }
+  .footer .link
+  {
+    font-size: 15px;
+    
+  }
 }
