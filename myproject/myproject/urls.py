@@ -28,6 +28,7 @@ urlpatterns = [
 
     path('', v.homepage_redirect, name='homepage_redirect'),
     path('homepage/', v.homepage, name='homepage'),
+    path('about/', v.about, name='about'),
     path('order/', views.order, name='order'),
     path('offer/', views.offer, name='offer'),
     path('app/', include('print4you.urls')),
@@ -60,7 +61,7 @@ urlpatterns = [
         'password/',
         auth_views.PasswordChangeView.as_view(
             template_name='change_password.html',
-            success_url = '/'
+            success_url='/'
         ),
         name='password'
     ),
