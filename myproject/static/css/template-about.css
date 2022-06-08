@@ -51,9 +51,18 @@
       color:white;
       border:none;
   }
+  .card-img-top img
+  {
+    height: 100px;
+  }
   .card
   {
       margin-bottom:30px;
+      
+  }
+  .list-group
+  {
+    min-height: 130px;
   }
   .footer {
     height: 70px;
@@ -76,6 +85,19 @@
     font-size: 18px;
     font-weight: normal;
     text-transform: uppercase;
+  }
+  .quote
+  {
+    font-style:italic;
+  }
+  .card-title
+  {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  .card-text
+  {
+    font-size: 18px;
   }
   @media(max-width:500px)
   {
