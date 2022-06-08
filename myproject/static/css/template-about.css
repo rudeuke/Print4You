@@ -1,0 +1,143 @@
+* {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Ubuntu',sans-serif;
+    color: black;
+    background-color: #444;
+  }
+  
+  .navbar {
+    background-color: #fabb0c;
+    text-transform: uppercase;
+    font-weight: bold;
+    z-index: 5;
+  }
+  
+  .navbar .nav-link, .navbar .navbar-brand {
+    color: white;
+    -webkit-transition: color 0.3s;
+    transition: color 0.3s;
+  }
+  
+  .navbar .mint-text {
+    color: #3eb489;
+  }
+  
+  .navbar .nav-link:hover, .navbar .navbar-brand:hover {
+    color: #3eb489;
+  }
+  
+  .login-btn {
+    margin-right: 15px;
+  }
+  
+  .content {
+    height: 800px;
+    background-color: #3eb489;
+    margin-top:25px;
+    padding-top:50px;
+    position: relavite;
+    text-align: center;
+  }
+
+  .card-body,.list-group-item,.list-group
+  {
+      background-color: #444;
+      color:white;
+      border:none;
+  }
+  .card-img-top img
+  {
+    height: 100px;
+  }
+  .card
+  {
+      margin-bottom:30px;
+      
+  }
+  .list-group
+  {
+    min-height: 130px;
+  }
+  .footer {
+    height: 70px;
+    text-align: center;
+    color: white;
+  }
+  
+  .footer a {
+    text-decoration: none;
+    color: white;
+    -webkit-transition: color 0.3s;
+    transition: color 0.3s;
+  }
+  
+  .footer a:hover {
+    color: gold;
+  }
+  
+  .footer .link {
+    font-size: 18px;
+    font-weight: normal;
+    text-transform: uppercase;
+  }
+  .quote
+  {
+    font-style:italic;
+  }
+  .card-title
+  {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  .card-text
+  {
+    font-size: 18px;
+  }
+  @media(max-width:500px)
+  {
+    .content
+    {
+      height: 100%;
+      
+    }
+    .card
+    {
+      width: 100%;
+      margin-left:auto;
+      margin-right:auto;
+     
+    }
+    .footer .link
+    {
+      font-size: 15px;
+      
+    }
+  }
+  @media(min-width:500px)
+  {
+    .content
+    {
+      height: 100%;
+      
+    }
+    .card
+    {
+      width: 100%;
+      margin-left:auto;
+      margin-right:auto;
+      
+    }
+  }
+  @media(min-width:992px)
+  {
+      .content
+      {
+        height: 800px;
+      }
+  }

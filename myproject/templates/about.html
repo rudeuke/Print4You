@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/f394a4746b.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="{% static 'css/style-offer.css'%}">
+  <link rel="stylesheet" href="{% static 'css/template-about.css'%}">
   <title>Print4You</title>
 </head>
 
@@ -27,7 +27,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-link" href={% url "homepage" %}>Home</a>
-          <a class="nav-link" href={% url "about" %}>o nas</a>
+          <a class="nav-link" href="#">o nas</a>
           <a class="nav-link" href={% url "offer" %}>oferta</a>
           <a class="nav-link" href={% url "calculator" %}>zamów</a>
           </div>
@@ -45,55 +45,68 @@
     </div>
   </nav>
 <main>
-<div class="all-offers">
-    <div class="offers">
-        <div class="container">
-            <div class="row offer-row">
-            <div class="col-12 col-sm-6 offer-text">
-                <h2>zdjęcia</h2>
-                <p>papier: mat / błyszczący</p>
-                <p>druk: kolorowy / czarnobiały</p>
-                <p> format: 9X13 / 10X15 / A4 / A3</p>
-            </div>
-            <div class=" col-12 col-sm-6 offer-img">
-                <img src="{% static 'img/photos.jpg' %}" alt="zdjęcia">
-            </div>
-            </div>
+  <div class="content">
+  <div class="container">
+    <div class="row">
+      <div class="about-card col-12 col-sm-6 col-lg-3">
+        <div class="card">
+          <div>
+            <img class="card-img-top" src="{% static 'img/rudy.jpg' %}" alt="Card image cap">
+            <div class="card-body text">
+            <h5 class="card-title">Bartosz Kukuł</h5>
+            <p class="card-text ">Senior Copy-Paste Specialist</p>
+          </div>
+            
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Ukończył 4-godzinny kurs programowania HTML w Grudziądzu</li>
+            <li class="list-group-item quote">"Nie wiem, u mnie działało"</li>
+          </ul>
         </div>
-    </div>
-    <div class="offers">
-      <div class="container">
-          <div class="row offer-row">
-          <div class="col-12 col-sm-6 offer-text">
-              <h2>plakat</h2>
-              <p>papier: mat / błyszczący</p>
-              <p>druk: kolorowy / czarnobiały</p>
-              <p>format: 50x70 / 80x100 / 12x160</p>
-          </div>
-          <div class=" col-12 col-sm-6 offer-img">
-              <img src="{% static 'img/poster.jpg' %}" alt="plakaty">
-          </div>
-          </div>
       </div>
-  </div>
-  <div class="offers">
-    <div class="container">
-        <div class="row offer-row">
-          <div class="col-12 col-sm-6 offer-text">
-            <h2>duży format</h2>
-            <p>papier: mat / błyszczący</p>
-            <p>druk: kolorowy / czarnobiały</p>
-            <p>format: 800mm / 1000mm / 1200mm</p>
+      <div class="col-12 col-sm-6 col-lg-3 ">
+        <div class="card" >
+          <img class="card-img-top" src="{% static 'img/arek.jpg' %}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Arkadiusz Kubica</h5>
+            <p class="card-text">Low-End Developer</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Jego jedna linijka w Python'ie nie pozbawia pracy 50 programistów C#</li>
+            <li class="list-group-item quote">"Ty a weź zrób bardziej responsywne"</li>
+          </ul>
         </div>
-        <div class=" col-12 col-sm-6 offer-img">
-            <img src="{% static 'img/bigformat.jpg' %}" alt="plakaty">
+      </div>
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card" >
+          <img class="card-img-top" src="{% static 'img/bartek.jpg' %}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Bartosz Marko</h5>
+            <p class="card-text">Stackoverflow Enjoyer</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Więcej mówi o pracowaniu niż pracuje</li>
+            <li class="list-group-item quote">"Nie no tego diva to się nie da wycentrować"</li>
+            
+          </ul>
         </div>
+      </div>
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="card" >
+          <img class="card-img-top" src="{% static 'img/dawid.jpg' %}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Dawid Kulik</h5>
+            <p class="card-text">Allworking Specialist </p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Nikt tak naprawdę nie wie skąd się tu wziął i czym się zajmuje</li>
+            <li class="list-group-item quote">"Ej chłopaki a co macie w czwartym zadaniu?"</li>
+          </ul>
         </div>
+      </div>
     </div>
+  </div>
 </div>
-</div>
-    
-
 </main>
 <footer class="footer">
   <div class="container">
